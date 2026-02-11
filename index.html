@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Last Supper — August 12, 2026</title>
+<meta name="description" content="An intimate dinner for 8. One question. Eight courses. One night you won't forget.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0c0a08;
+  color: #d4c5b0;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+
+/* ── Serif display ── */
+.serif { font-family: 'Cormorant Garamond', 'Georgia', serif; }
+
+/* ── Grain overlay ── */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* ── Layout ── */
+.container { max-width: 800px; margin: 0 auto; padding: 0 28px; }
+
+/* ── Divider ── */
+.divider {
+  display: flex; align-items: center; gap: 20px;
+  margin: 60px auto; max-width: 300px;
+  opacity: 0.15;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 1px; background: #d4c5b0;
+}
+.divider-symbol { font-size: 14px; letter-spacing: 0.3em; }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 28px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(180,140,80,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-numeral {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.25;
+  margin-bottom: 40px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 12vw, 96px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #e8dcc8;
+  margin-bottom: 24px;
+}
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  opacity: 0.4;
+  max-width: 420px;
+  margin: 0 auto 48px;
+  line-height: 1.8;
+}
+.hero-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+  border: 1px solid rgba(212,197,176,0.15);
+  padding: 12px 32px;
+  display: inline-block;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  opacity: 0.15;
+  animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.3; } }
+
+/* ── Premise ── */
+.premise {
+  padding: 80px 0;
+  text-align: center;
+}
+.premise-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 300;
+  font-style: italic;
+  color: #e8dcc8;
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+.premise p {
+  font-size: 15px;
+  font-weight: 300;
+  opacity: 0.5;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+/* ── Ritual ── */
+.ritual { padding: 80px 0; }
+.ritual-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.ritual-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.2;
+  margin-bottom: 16px;
+}
+.ritual-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 300;
+  color: #e8dcc8;
+}
+.ritual-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.ritual-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(212,197,176,0.06);
+  align-items: baseline;
+}
+.ritual-step:last-child { border-bottom: none; }
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  opacity: 0.12;
+  text-align: right;
+  line-height: 1;
+}
+.step-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #e8dcc8;
+  margin-bottom: 8px;
+}
+.step-text p {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.45;
+  line-height: 1.8;
+}
+
+/* ── Guests ── */
+.guests { padding: 80px 0; text-align: center; }
+.guests-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 48px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 500px) { .guests-grid { grid-template-columns: repeat(4, 1fr); gap: 3px; } }
+.seat {
+  aspect-ratio: 1;
+  background: rgba(212,197,176,0.03);
+  border: 1px solid rgba(212,197,176,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  transition: all 0.3s;
+}
+.seat:hover { background: rgba(212,197,176,0.06); border-color: rgba(212,197,176,0.12); }
+.seat-num {
+  font-size: 28px;
+  font-weight: 300;
+  color: #e8dcc8;
+  opacity: 0.6;
+}
+.seat-label {
+  font-size: 9px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.2;
+  margin-top: 4px;
+}
+.seat-host {
+  background: rgba(180,140,80,0.06);
+  border-color: rgba(180,140,80,0.15);
+}
+.seat-host .seat-num { opacity: 1; color: #b48c50; }
+
+/* ── Menu ── */
+.menu { padding: 80px 0; }
+.menu-card {
+  background: rgba(212,197,176,0.02);
+  border: 1px solid rgba(212,197,176,0.06);
+  padding: 48px 40px;
+  text-align: center;
+  margin-top: 48px;
+}
+.menu-card .course {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(212,197,176,0.04);
+}
+.menu-card .course:last-child { border-bottom: none; }
+.course-num {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.2;
+  margin-bottom: 6px;
+}
+.course-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: #e8dcc8;
+}
+.course-mystery {
+  font-size: 12px;
+  opacity: 0.25;
+  margin-top: 4px;
+  letter-spacing: 0.1em;
+}
+
+/* ── Quote ── */
+.quote-section { padding: 100px 0; text-align: center; }
+.quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 300;
+  font-style: italic;
+  color: #e8dcc8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+.quote-attr {
+  font-size: 12px;
+  opacity: 0.2;
+  margin-top: 20px;
+  letter-spacing: 0.2em;
+}
+
+/* ── Details ── */
+.details { padding: 80px 0; }
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+@media (max-width: 600px) { .details-grid { grid-template-columns: 1fr; } }
+.detail-item h4 {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.25;
+  margin-bottom: 8px;
+}
+.detail-item p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #e8dcc8;
+}
+
+/* ── Rules ── */
+.rules { padding: 80px 0; text-align: center; }
+.rules-list {
+  list-style: none;
+  max-width: 500px;
+  margin: 48px auto 0;
+  text-align: left;
+}
+.rules-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(212,197,176,0.04);
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.5;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.rule-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  opacity: 0.3;
+  min-width: 28px;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 80px 28px;
+  border-top: 1px solid rgba(212,197,176,0.04);
+}
+footer p {
+  font-size: 12px;
+  opacity: 0.15;
+  letter-spacing: 0.1em;
+}
+
+/* ── Reveal ── */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s, transform 0.8s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-numeral">XII · VIII · MMXXVI</div>
+  <h1 class="serif">The Last<br>Supper</h1>
+  <p class="hero-sub">An intimate dinner for eight.<br>One question. Eight courses.<br>One night you won't forget.</p>
+  <div class="hero-date">AUGUST 12, 2026</div>
+  <div class="hero-scroll">SCROLL ↓</div>
+</section>
+
+<!-- ═══════════════ PREMISE ═══════════════ -->
+<section class="premise">
+  <div class="container">
+    <div class="reveal">
+      <div class="premise-question serif">
+        "If tonight were your last night alive —<br>what would you eat?"
+      </div>
+      <p>Before the dinner, a chef will ask you this question privately. No one else will know your answer. Not even the host.</p>
+      <p style="margin-top: 16px;">Your answer becomes one of eight courses served that evening.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-symbol">✦</span></div>
+
+<!-- ═══════════════ THE RITUAL ═══════════════ -->
+<section class="ritual">
+  <div class="container">
+    <div class="ritual-header reveal">
+      <div class="ritual-label">The Ritual</div>
+      <div class="ritual-title serif">How the evening unfolds</div>
+    </div>
+    <div class="ritual-steps">
+      <div class="ritual-step reveal">
+        <div class="step-num">I</div>
+        <div class="step-text">
+          <h3 class="serif">The Question</h3>
+          <p>Weeks before the dinner, a mysterious chef reaches out to each guest privately. One question: your last meal. Your answer is sealed. No one else will see it.</p>
+        </div>
+      </div>
+      <div class="ritual-step reveal">
+        <div class="step-num">II</div>
+        <div class="step-text">
+          <h3 class="serif">The Preparation</h3>
+          <p>The chef transforms eight answers into an eight-course tasting menu. A Shake Shack craving becomes a deconstructed truffle burger. Grandmother's congee becomes a silken rice velouté. Nothing is literal. Everything is interpreted.</p>
+        </div>
+      </div>
+      <div class="ritual-step reveal">
+        <div class="step-num">III</div>
+        <div class="step-text">
+          <h3 class="serif">The Gathering</h3>
+          <p>Eight guests. One long table. The menu is placed before you — eight courses, no names attached. You don't know whose soul you're about to taste.</p>
+        </div>
+      </div>
+      <div class="ritual-step reveal">
+        <div class="step-num">IV</div>
+        <div class="step-text">
+          <h3 class="serif">The Guessing</h3>
+          <p>With each course, the table speculates. Whose last meal is this? The quiet one? The one who travels? The one who never talks about home? Arguments arise. Laughter erupts. You learn more about your friends in these moments than in years of small talk.</p>
+        </div>
+      </div>
+      <div class="ritual-step reveal">
+        <div class="step-num">V</div>
+        <div class="step-text">
+          <h3 class="serif">The Reveal</h3>
+          <p>One by one, each guest claims their course. And explains why. The room goes quiet. Because what you'd eat before you die is never really about food — it's about memory, comfort, love, and who you were before the world told you who to be.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-symbol">✦</span></div>
+
+<!-- ═══════════════ THE TABLE ═══════════════ -->
+<section class="guests">
+  <div class="container">
+    <div class="reveal">
+      <div class="ritual-label">The Table</div>
+      <div class="ritual-title serif">Eight seats. No empty chairs.</div>
+      <p style="font-size: 14px; opacity: 0.4; margin-top: 16px; max-width: 400px; margin-left: auto; margin-right: auto;">Each seat is chosen. Each guest is invited for a reason. There is no waitlist. There is no second seating.</p>
+    </div>
+    <div class="guests-grid reveal">
+      <div class="seat"><span class="seat-num">I</span><span class="seat-label">Sealed</span></div>
+      <div class="seat"><span class="seat-num">II</span><span class="seat-label">Sealed</span></div>
+      <div class="seat"><span class="seat-num">III</span><span class="seat-label">Sealed</span></div>
+      <div class="seat"><span class="seat-num">IV</span><span class="seat-label">Sealed</span></div>
+      <div class="seat"><span class="seat-num">V</span><span class="seat-label">Sealed</span></div>
+      <div class="seat"><span class="seat-num">VI</span><span class="seat-label">Sealed</span></div>
+      <div class="seat"><span class="seat-num">VII</span><span class="seat-label">Sealed</span></div>
+      <div class="seat seat-host"><span class="seat-num">VIII</span><span class="seat-label">Host</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-symbol">✦</span></div>
+
+<!-- ═══════════════ THE MENU ═══════════════ -->
+<section class="menu">
+  <div class="container">
+    <div class="reveal" style="text-align: center;">
+      <div class="ritual-label">The Menu</div>
+      <div class="ritual-title serif">You won't know whose soul<br>you're tasting.</div>
+    </div>
+    <div class="menu-card reveal">
+      <div class="course">
+        <div class="course-num">First Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Second Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Third Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Fourth Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Fifth Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Sixth Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Seventh Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+      <div class="course">
+        <div class="course-num">Eighth Course</div>
+        <div class="course-name serif">?</div>
+        <div class="course-mystery">sealed until the evening</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-symbol">✦</span></div>
+
+<!-- ═══════════════ QUOTE ═══════════════ -->
+<section class="quote-section">
+  <div class="container reveal">
+    <div class="quote serif">"Truly I tell you, one of you will betray me — the one who dips his hand into the bowl with me."</div>
+    <div class="quote-attr">MATTHEW 26:23</div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-symbol">✦</span></div>
+
+<!-- ═══════════════ RULES ═══════════════ -->
+<section class="rules">
+  <div class="container">
+    <div class="reveal">
+      <div class="ritual-label">The Rules</div>
+      <div class="ritual-title serif">Commandments</div>
+    </div>
+    <ul class="rules-list reveal">
+      <li><span class="rule-num">I</span> You shall not reveal your last meal to anyone before the dinner.</li>
+      <li><span class="rule-num">II</span> You shall not ask others what they chose.</li>
+      <li><span class="rule-num">III</span> You shall be honest. The chef will know if you're not.</li>
+      <li><span class="rule-num">IV</span> You shall arrive on time. The table does not wait.</li>
+      <li><span class="rule-num">V</span> You shall not photograph the courses until the reveal.</li>
+      <li><span class="rule-num">VI</span> You shall trust the chef.</li>
+      <li><span class="rule-num">VII</span> You shall remember this night.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-symbol">✦</span></div>
+
+<!-- ═══════════════ DETAILS ═══════════════ -->
+<section class="details">
+  <div class="container">
+    <div class="reveal" style="text-align: center;">
+      <div class="ritual-label">The Details</div>
+      <div class="ritual-title serif">Logistics</div>
+    </div>
+    <div class="details-grid reveal">
+      <div class="detail-item">
+        <h4>Date</h4>
+        <p class="serif">August 12, 2026</p>
+      </div>
+      <div class="detail-item">
+        <h4>Time</h4>
+        <p class="serif">7:30 PM</p>
+      </div>
+      <div class="detail-item">
+        <h4>Guests</h4>
+        <p class="serif">Eight, by invitation only</p>
+      </div>
+      <div class="detail-item">
+        <h4>Dress</h4>
+        <p class="serif">As if it were your last night</p>
+      </div>
+      <div class="detail-item">
+        <h4>Location</h4>
+        <p class="serif">Disclosed upon confirmation</p>
+      </div>
+      <div class="detail-item">
+        <h4>Host</h4>
+        <p class="serif">Pak Hou Chau</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <p>THE LAST SUPPER · XII · VIII · MMXXVI</p>
+  <p style="margin-top: 12px; opacity: 0.6; font-size: 11px;">"Do this in remembrance of me."</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
